@@ -1,0 +1,26 @@
+{
+    "name": "audiomaker",
+    "version": "1.0.0",
+    "description": "A simple, light weight javascript plugin for audio editing functionalites.",
+    "author": "aliveDevKing <alivedevking@gmail.com>",
+    "main": "index.js",
+    "keywords": [
+        "audio",
+        "trim",
+        "concat",
+        "timeline",
+        "loop",
+        "reverse",
+        "Merge",
+        "wav",
+        "stream",
+        "sound",
+        "webaudio",
+        "AudioBuffer"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/alivedevking/audiomaker.git"
+    },
+    "license": "MIT"
+}
