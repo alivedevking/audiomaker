@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AudioMaker</title>
+    <link href="./asset/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./asset/css/example.css" rel="stylesheet">
+</head>
+<body>
+    <center class="mt-2">
+        <h2>Audio Maker</h2>
+    </center>
+    <div class="container">
+        <div class="trimDiv mt-3">
+            <h5>Trim</h5>
+            <hr>
+            <b class="error-message" id="trimError"></b>
+            <div class="row">
+                <div class="col-md-3 my-auto">
+                    <div class="input-group">
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" accept="audio/*, video/*" id="trimFile">
+                          <label class="custom-file-label" for="trimFile" aria-describedby="inputGroupFileAddon02">Choose audio</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 m-2 d-flex">
+                      <div class="input-group m-2">
+                        <div class="input-group-prepend">
+                          <button class="btn btn-primary" type="button" id="button-addon1">Start</button>
+                        </div>
+                        <input type="number" id="trimStart" value="0" class="form-control">
+                      </div>
+                      <div class="input-group m-2">
+                        <div class="input-group-prepend">
+                          <button class="btn btn-primary" type="button" id="button-addon1">End</button>
+                        </div>
+                        <input type="number" id="trimEnd" class="form-control">
+                      </div>
+                </div>
+                <div class="col-md-1 justify-content-center d-flex my-auto">
+                    <button class="btn btn-primary my-auto w-100" onclick="trimAudio()">Trim</button>
+                </div>
+                <div class="col-md-3 justify-content-center d-flex my-2">
+                    <audio width="235px" id="trimOutput" src=""></audio>
+                </div>
+            </div>
+        </div>
+        <div class="addDiv mt-3">
+            <h5>Concat</h5>
+            <hr>
+            <b class="error-message" id="concatError"></b>
+            <div class="row">
+                <div class="col-md-3 m-2">
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" accept="audio/*, video/*" id="concatFile1">
+                            <label class="custom-file-label" for="concatFile1" aria-describedby="inputGroupFileAddon02">Choose audio</label>
+                        </div>
+                    </div>
+                </div>  
+                <div class="col-md-1 my-auto text-center">+</div>
+                <div class="col-md-3 m-2">
+                    <div class="input-group">
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" accept="audio/*, video/*" id="concatFile2">
+                          <label class="custom-file-label" for="concatFile2" aria-describedby="inputGroupFileAddon02">Choose audio</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1 justify-content-center d-flex m-2 px-0">
+                    <button class="btn btn-primary my-auto w-100" onclick="concatAudio()">Concat</button>
+                </div>
+                <div class="col-md-3 justify-content-center d-flex">
+                    <audio width="235px" id="concatOutput" src=""></audio>
+                </div>
+            </div>
+        </div>
+        <div class="mergeDiv mt-3">
+            <h5>Merge</h5>
+            <hr>
+            <b class="error-message" id="mergeError"></b>
+            <div class="row">
+                <div class="col-md-3 m-2">
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" accept="audio/*, video/*" id="mergeFile1">
+                            <label class="custom-file-label" for="mergeFile1" aria-describedby="inputGroupFileAddon02">Choose audio</label>
+                        </div>
+                    </div>
+                </div>  
+                <div class="col-md-1 my-auto text-center">+</div>
+                <div class="col-md-3 m-2">
+                    <div class="input-group">
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" accept="audio/*, video/*" id="mergeFile2">
+                          <label class="custom-file-label" for="mergeFile2" aria-describedby="inputGroupFileAddon02">Choose audio</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1 justify-content-center d-flex m-2 px-0">
+                    <button class="btn btn-primary my-auto w-100" onclick="mergeAudio()">Merge</button>
+                </div>
+                <div class="col-md-3 justify-content-center d-flex">
+                    <audio width="235px" id="mergeOutput" src=""></audio>
+                </div>
+            </div>
+        </div>
+        <div class="loopDiv mt-3">
+            <h5>Loop</h5>
+            <hr>
+            <b class="error-message" id="loopError"></b>
+            <div class="row">
+                <div class="col-md-4 m-2">
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" accept="audio/*, video/*" id="loopFile">
+                            <label class="custom-file-label" for="loopFile" aria-describedby="inputGroupFileAddon02">Choose audio</label>
+                        </div>
+                    </div>
+                </div>  
+                <div class="col-md-3 m-2">
+                    <div class="input-group input-group-sm">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Loop Count</span>
+                        </div>
+                        <input type="number" id="loopCount" class="form-control" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                </div>
+                <div class="col-md-1 justify-content-center d-flex m-2 px-0">
+                    <button class="btn btn-primary my-auto w-100" onclick="loopAudio()">Loop</button>
+                </div>
+                <div class="col-md-3 justify-content-center d-flex">
+                    <audio width="235px" id="loopOutput" src=""></audio>
+                </div>
+            </div>
+        </div>
+        <div class="reverseDiv mt-3">
+            <h5>Reverse</h5>
+            <hr>
+            <b class="error-message" id="reverseError"></b>
+            <div class="row">
+                <div class="col-md-7 m-2">
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="reverseFile"   accept="audio/*, video/*">
+                            <label class="custom-file-label" for="reverseFile" aria-describedby="inputGroupFileAddon02">Choose audio</label>
+                        </div>
+                    </div>
+                </div>  
+                <div class="col-md-1 justify-content-center d-flex m-2 px-0">
+                    <button class="btn btn-primary my-auto w-100" onclick="reverseAudio()">reverse</button>
+                </div>
+                <div class="col-md-3 justify-content-center d-flex">
+                    <audio width="235px" id="reverseOutput" src=""></audio>
+                </div>
+            </div>
+        </div>
+        <div class="timelineDiv mt-3 mb-3">
+            <h5>Timeline</h5>
+            <hr>
+            <div class="row">
+                <div class="col-md-4 my-auto timelineBlock">
+                    <div class="d-flex justify-content-center my-2">
+                        <audio controls src="./asset/sounds/audio1.mp3"></audio>
+                    </div>
+                    <div class="d-flex">
+                        <div class="input-group input-group-sm m-2 w-50">
+                            <div class="input-group-prepend">
+                              <button class="btn btn-primary" type="button" id="button-addon1">Start</button>
+                            </div>
+                            <input type="number" id="trimStart1" value="0" class="form-control">
+                          </div>
+                          <div class="input-group input-group-sm m-2 w-50">
+                            <div class="input-group-prepend">
+                              <button class="btn btn-primary" type="button" id="button-addon1">End</button>
+                            </div>
+                            <input type="number" id="trimEnd1" class="form-control">
+                          </div>
+                    </div>
+                    <div class="d-flex justify-content-center my-2">
+                        <p>Reverse</p>
+                        <label class="switch float-right ml-5">
+                            <input type="checkbox" id="isReverse1">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="mx-auto w-50 d-flex justify-content-center mb-2">
+                        <div class="input-group input-group-sm">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">Loop Count</span>
+                            </div>
+                            <input type="number" id="loopCount1" class="form-control" aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 my-auto timelineBlock">
+                    <div class="d-flex justify-content-center my-2">
+                        <audio controls src="./asset/sounds/audio2.mp3"></audio>
+                    </div>
+                    <div class="d-flex">
+                        <div class="input-group input-group-sm m-2 w-50">
+                            <div class="input-group-prepend">
+                              <button class="btn btn-primary" type="button" id="button-addon1">Start</button>
+                            </div>
+                            <input type="number" id="trimStart2" value="0" class="form-control">
+                          </div>
+                          <div class="input-group input-group-sm m-2 w-50">
+                            <div class="input-group-prepend">
+                              <button class="btn btn-primary" type="button" id="button-addon1">End</button>
+                            </div>
+                            <input type="number" id="trimEnd2" class="form-control">
+                          </div>
+                    </div>
+                    <div class="d-flex justify-content-center my-2">
+                        <p>Reverse</p>
+                        <label class="switch float-right ml-5">
+                            <input type="checkbox" id="isReverse2" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="mx-auto w-50 d-flex justify-content-center mb-2">
+                        <div class="input-group input-group-sm">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">Loop Count</span>
+                            </div>
+                            <input type="number" id="loopCount2" class="form-control" aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 my-auto timelineBlock">
+                    <div class="d-flex justify-content-center my-2">
+                        <audio controls src="./asset/sounds/audio3.mp3"></audio>
+                    </div>
+                    <div class="d-flex">
+                        <div class="input-group input-group-sm m-2 w-50">
+                            <div class="input-group-prepend">
+                              <button class="btn btn-primary" type="button" id="button-addon1">Start</button>
+                            </div>
+                            <input type="number" id="trimStart3" value="0" class="form-control">
+                          </div>
+                          <div class="input-group input-group-sm m-2 w-50">
+                            <div class="input-group-prepend">
+                              <button class="btn btn-primary" type="button" id="button-addon1">End</button>
+                            </div>
+                            <input type="number" id="trimEnd3" class="form-control">
+                          </div>
+                    </div>
+                    <div class="d-flex justify-content-center my-2">
+                        <p>Reverse</p>
+                        <label class="switch float-right ml-5">
+                            <input type="checkbox" id="isReverse3">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="mx-auto w-50 d-flex justify-content-center mb-2">
+                        <div class="input-group input-group-sm">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">Loop Count</span>
+                            </div>
+                            <input type="number" id="loopCount3" class="form-control" aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex w-100 justify-content-center my-3">
+                    <button class="btn btn-primary" onclick="timelineAudio()">Generate</button>
+                </div>
+                <div class="d-flex w-100 justify-content-center mb-3">
+                    <audio width="235px" id="timelineOutput" src=""></audio>
+                </div>
+            </div>
+        </div>
+    </div>  
+    <script src="./asset/js/jquery-3.4.1.min.js"></script>
+    <script src="./asset/js/bootstrap.min.js"></script>
+    <script src="./asset/js/example.js"></script>
+</body>
+</html>

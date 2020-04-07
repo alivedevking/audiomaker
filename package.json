@@ -18,6 +18,9 @@
         "webaudio",
         "AudioBuffer"
     ],
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/"
+    },
     "repository": {
         "type": "git",
         "url": "https://github.com/alivedevking/audiomaker.git"
