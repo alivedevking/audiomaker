@@ -40,7 +40,7 @@ let _audioMaker = new audioMaker();
 - [Timeline](#timeline)
 
 #### Demo
-Try this demo for better understanding.
+Try this [demo](https://alivedevking.github.io/) for better understanding.
 ### Trim
 > Method - trim(File, start, end);
 ```javascript
