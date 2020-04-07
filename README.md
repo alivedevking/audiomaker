@@ -3,7 +3,8 @@
 
 **AudioMaker** is a javascript plugin which provides audio editing functionalites without using any other libraries like ffmpeg.
 
-[![Build Status](https://travis-ci.org/{ORG-or-USERNAME}/{REPO-NAME}.png?branch=master)](https://travis-ci.org/{ORG-or-USERNAME}/{REPO-NAME})
+![npm](https://img.shields.io/npm/v/audiomaker) 
+![GitHub](https://img.shields.io/github/license/alivedevking/audiomaker)
 # Getting Started
 
 - [Installation](#installation)
@@ -118,3 +119,5 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure to update tests as appropriate.
 
 ## License
+
+- Licensed by **[MIT](https://github.com/alivedevking/audiomaker/blob/master/LICENSE)**.
