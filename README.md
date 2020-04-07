@@ -120,4 +120,4 @@ Please make sure to update tests as appropriate.
 
 ## License
 
-- Licensed by **[MIT](https://github.com/alivedevking/audiomaker/blob/master/LICENSE)**.
+- Licensed by **[MIT](https://github.com/alivedevking/audiomaker/blob/master/LICENSE.md)**.
