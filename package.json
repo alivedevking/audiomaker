@@ -1,6 +1,6 @@
 {
     "name": "audiomaker",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A simple, light weight javascript plugin for audio editing functionalites.",
     "author": "aliveDevKing <alivedevking@gmail.com>",
     "main": "index.js",
